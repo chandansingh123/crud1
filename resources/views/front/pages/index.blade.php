@@ -215,6 +215,3 @@
 
 @endsection
 
-<script>
-alert('hello');
-</script>
