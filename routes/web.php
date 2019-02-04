@@ -10,8 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/**
+ * 
+ * front end
+ */
 Route::get('/', function () {
     return view('front.pages.index');
     // return view('front.layouts.master');
 });
+
+
+/**
+ * 
+ * back end
+ */
+
+
+ Route::get('/admin',function(){
+     return view ('back.dashboard');
+    //  return view ('back.layouts.master');
+
+ });
