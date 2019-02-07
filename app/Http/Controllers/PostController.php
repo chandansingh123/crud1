@@ -24,7 +24,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view ('back.post.create');
     }
 
     /**
@@ -35,8 +36,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+            //  dd($request->());
+            // dd($request->all());
+            //validate the form data
+
+            $validatedData = $request->validate([
+                'title' => 'required',
+                'body' => 'required',
+            ]);
+            //save the form date to database
+
+            // return view
+        }
 
     /**
      * Display the specified resource.
