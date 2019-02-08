@@ -41,12 +41,21 @@ class PostController extends Controller
             //validate the form data
 
             $validatedData = $request->validate([
-                'title' => 'required',
-                'body' => 'required',
+                'title' => 'required|unique:posts',
+                'description' => 'required',
             ]);
             //save the form date to database
-
-            // return view
+            $post = new post;
+            $post->title = $request->title;
+            $post->description = $request->description;
+            $post->user_id = 1;
+            $post->slug = str_slug($request->title);
+            $post->save();
+            
+            // dd($post);
+            // return 'successful';
+                //   return redirect()->back();
+                  return redirect()->route('post.create');
         }
 
     /**
