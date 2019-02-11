@@ -30,5 +30,6 @@ Route::get('/', function () {
      return view ('back.dashboard');
  });
 
+ Route::get('/admin/post','PostController@index')->name('post.index');
  Route::get('/admin/post/create','PostController@create')->name('post.create');
  Route::post('/admin/post/store','PostController@store')->name('post.store');
