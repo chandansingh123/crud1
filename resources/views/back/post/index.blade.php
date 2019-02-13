@@ -1,6 +1,7 @@
 @extends('back.layouts.master')
 @section('contents')
-
+{{-- {{dump($posts)}}
+{{dump('Next Line')}} --}}
 <section class="content">
         <div class="row">
           <div class="col-xs-12">
@@ -28,13 +29,15 @@
                       <tr>
                         <th>Action</th>
                         <th>Title</th>
+                        <th>Description</th>
                         <th>Author</th>
                         <th>Category</th>
                         <th>Date</th>
                       </tr>
                   </thead>
                   <tbody>
-                      <tr>
+                  @foreach ($posts as $post )
+                       <tr>
                         <td width="70">
                             <a title="Edit" class="btn btn-xs btn-default edit-row" href="#">
                                 <i class="fa fa-edit"></i>
@@ -43,39 +46,15 @@
                                 <i class="fa fa-times"></i>
                             </a>
                         </td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                        
+                        <td>{{($post->title)}}</td>
+                        <td>{{str_limit($post->description,40)}}</td>
                         <td>John Doe</td>
                         <td>Programming</td>
-                        <td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-info">Schedule</span></td>
+                        <td><abbr title="2016/12/04 6:32:00 PM">{{($post->created_at)}}</abbr> | <span class="label label-info">Schedule</span></td>
                       </tr>
-                      <tr>
-                        <td width="70">
-                            <a title="Edit" class="btn btn-xs btn-default edit-row" href="#">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a title="Delete" class="btn btn-xs btn-danger delete-row" href="#">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        <td>John Doe</td>
-                        <td>Programming</td>
-                        <td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-warning">Draft</span></td>
-                      </tr>
-                      <tr>
-                        <td width="70">
-                            <a title="Edit" class="btn btn-xs btn-default edit-row" href="#">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a title="Delete" class="btn btn-xs btn-danger delete-row" href="#">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                        <td>John Doe</td>
-                        <td>Programming</td>
-                        <td><abbr title="2016/12/04 6:32:00 PM">2016/12/04</abbr> | <span class="label label-success">Published</span></td>
-                      </tr>
+                  @endforeach
+                     
                   </tbody>
                 </table>
               </div>
