@@ -16,11 +16,11 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-          <div class="col-xs-9">
+          <div class="col-xs-12">
 
               <div class="box">
                             
-                @if ($errors->any())
+                {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -28,9 +28,9 @@
                         @endforeach
                         </ul>
                     </div>
-                @endif
+                @endif --}}
                   <!-- form start -->
-                  <form role="form" action="{{route('post.store')}}" method="post">
+                  <form role="form" action="{{route('posts.store')}}" method="post">
                   @csrf
                     <div class="box-body">
                       <div class="form-group">
@@ -47,7 +47,9 @@
 
                     <div class="box-footer">
                       <button class="btn btn-primary" type="submit">Submit</button>
+                      <button class="btn btn-primary" type="cancel">cancel</button>
                     </div>
+                    
                   </form>
                 </div>
           </div>

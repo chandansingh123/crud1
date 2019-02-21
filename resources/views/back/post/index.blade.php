@@ -8,10 +8,10 @@
             <div class="box">
                 <div class="box-header">
                     <div class="pull-left">
-                        <a id="add-button" title="Add New" class="btn btn-success" href="{{route('post.create')}}"><i class="fa fa-plus-circle"></i> Add New</a>
+                        <a id="add-button" title="Add New" class="btn btn-success" href="{{route('posts.create')}}"><i class="fa fa-plus-circle"></i> Add New</a>
                     </div>
                     <div class="pull-right">
-                        <form accept-charset="utf-8" method="post" class="form-inline" id="form-filter" action="#">
+                        <form accept-charset="utf-12" method="post" class="form-inline" id="form-filter" action="#">
                             <div class="input-group">
                                 <input type="hidden" name="search">
                                 <input type="text" name="keywords" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search..." value="">
@@ -39,12 +39,18 @@
                   @foreach ($posts as $post )
                        <tr>
                         <td width="70">
-                            <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{route('post.edit',$post->id)}}">
+                            <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{route('posts.edit',$post->id)}}">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a title="Delete" class="btn btn-xs btn-danger delete-row" href="#">
+                            <form action="{{route('posts.destroy',$post->id)}}" method="post">
+
+                              @csrf
+                              @method('DELETE')
+                              <button title="Delete" class="btn btn-xs btn-danger delete-row" href="{{route('posts.destroy',$post->id)}}">
                                 <i class="fa fa-times"></i>
-                            </a>
+                            </button>
+                            </form>
+                            
                         </td>
                         
                         <td>{{($post->title)}}</td>

@@ -8,7 +8,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="{{route('post.index')}}">Post</a></li>
+        <li><a href="{{route('posts.index')}}">Post</a></li>
         <li class="active">edit New Post</li>
       </ol>
     </section>
@@ -20,7 +20,7 @@
 
               <div class="box">
                             
-                @if ($errors->any())
+                {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -28,9 +28,9 @@
                         @endforeach
                         </ul>
                     </div>
-                @endif
+                @endif --}}
                   <!-- form start -->
-                  <form role="form" action="{{route('post.update',$post->id)}}" method="post">
+                  <form role="form" action="{{route('posts.update',$post->id)}}" method="post">
                   @csrf
                   @method('PUT')
                     <div class="box-body">
@@ -48,6 +48,7 @@
 
                     <div class="box-footer">
                       <button class="btn btn-primary" type="submit">update</button>
+                      <button class="btn btn-primary" type="cancel">cancel</button>
                     </div>
                   </form>
                 </div>

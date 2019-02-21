@@ -24,14 +24,24 @@ Route::get('/', function () {
  * 
  * back end
  */
+Route::get('/admin', function () {
+    return view('back.dashboard');
+    // return view('front.layouts.master');
+});
 
-
- Route::get('/admin',function(){
-     return view ('back.dashboard');
- });
-
- Route::get('/admin/post','PostController@index')->name('post.index');
- Route::get('/admin/post/create','PostController@create')->name('post.create');
- Route::post('/admin/post/store','PostController@store')->name('post.store');
- Route::get('/admin/post/{post}/edit','PostController@edit')->name('post.edit');
- Route::put('/admin/post/{post}','PostController@update')->name('post.update');
+Route::prefix('admin')->group(function () {    
+    Route::resource('posts','PostController');
+        // Route::get('posts','PostController@index')->name('posts.index');
+        // Route::get('posts/create','PostController@create')->name('posts.create');
+        // Route::post('posts/store','PostController@store')->name('posts.store');
+        // Route::get('posts/{post}/edit','PostController@edit')->name('posts.edit');
+        // Route::put('posts/{post}','PostController@update')->name('posts.update');
+        // Route::delete('posts/{post}','PostController@destroy')->name('posts.destroy');
+    
+});
+//  Route::get('/admin/posts','PostController@index')->name('posts.index');
+//  Route::get('/admin/posts/create','PostController@create')->name('posts.create');
+//  Route::post('/admin/posts/store','PostController@store')->name('posts.store');
+//  Route::get('/admin/posts/{post}/edit','PostController@edit')->name('posts.edit');
+//  Route::put('/admin/posts/{post}','PostController@update')->name('posts.update');
+//  Route::delete('/admin/posts/{post}','PostController@destroy')->name('posts.destroy');

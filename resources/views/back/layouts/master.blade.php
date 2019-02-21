@@ -26,6 +26,7 @@
       </ol>
     </section>
 
+  @include('back.layouts.common.flash-msg')
     <!-- Main content -->
    @yield('contents')
     <!-- /.content -->

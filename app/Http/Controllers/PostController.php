@@ -57,7 +57,7 @@ class PostController extends Controller
             // dd($post);
             // return 'successful';
                 //   return redirect()->back();
-                  return redirect()->route('post.create');
+                  return redirect()->route('posts.create')->with('success','message successfully');
         }
 
     /**
@@ -90,11 +90,31 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
-    {
+    // public function update(Request $request, Post $post)
+    // {
         //
-        dd($request->all());
-    }
+        // dd($request->all());
+    //     $id = $post->id;
+
+
+
+
+    //     $post->update()->where('id',$post->id);
+    // }
+   
+
+        public function update(Request $request, $id)
+        {
+            $validatedData = $request->validate([
+                'title' => 'required|unique:posts',
+                'description' => 'required',
+            ]);
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->save();
+        return redirect()->route('posts.index')->with('success','message successfully updated');;
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -105,5 +125,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        // dd($post);
+        // return view('back.post.edit',compact('post'));
+        $post->delete();
+        return redirect()->back()->with('success','message successfully deleted');;
     }
 }
