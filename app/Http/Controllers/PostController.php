@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\validation\Rule;
 
 class PostController extends Controller
 {
@@ -106,7 +107,7 @@ class PostController extends Controller
         public function update(Request $request, $id)
         {
             $validatedData = $request->validate([
-                'title' => 'required|unique:posts',
+                'title' => 'required',Rule::unique('posts')->ignore('id'),
                 'description' => 'required',
             ]);
         $post = Post::find($id);

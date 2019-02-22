@@ -31,6 +31,7 @@ Route::get('/admin', function () {
 
 Route::prefix('admin')->group(function () {    
     Route::resource('posts','PostController');
+    Route::resource('categories','CategoriyController');
         // Route::get('posts','PostController@index')->name('posts.index');
         // Route::get('posts/create','PostController@create')->name('posts.create');
         // Route::post('posts/store','PostController@store')->name('posts.store');
