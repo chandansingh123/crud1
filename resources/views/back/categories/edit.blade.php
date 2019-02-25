@@ -30,19 +30,14 @@
                     </div>
                 @endif --}}
                   <!-- form start -->
-                  <form role="form" action="{{route('posts.update',$post->id)}}" method="post">
+                  <form role="form" action="{{route('Category.update',$post->id)}}" method="post">
                   @csrf
                   @method('PUT')
                     <div class="box-body">
                       <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" value="{{($post->title)}}" placeholder="Enter Title here" id="title" class="form-control">
-                      </div>
-                     
-                      <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea name="description" id="description" rows="10" class="form-control">{{($post->description)}}</textarea>
-                      </div>
+                      </div>                     
                     </div>
                     <!-- /.box-body -->
 

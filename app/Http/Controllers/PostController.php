@@ -114,7 +114,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->description = $request->description;
         $post->save();
-        return redirect()->route('posts.index')->with('success','message successfully updated');;
+        return redirect()->route('posts.index')->with('success','message successfully updated');
         }
 
     /**

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CategoriyController extends Controller
+use App\Category;
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,6 @@ class CategoriyController extends Controller
     public function index()
     {
         //
-        
     }
 
     /**
@@ -24,9 +24,7 @@ class CategoriyController extends Controller
      */
     public function create()
     {
-        //
         return view ('back.categories.create');
-        
     }
 
     /**
@@ -37,7 +35,13 @@ class CategoriyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' =>'required|unique:categories',
+        ]);
+        Category::create([
+            'title' => $request->title
+        ]);
+        return redirect()->back()->with('success' ,'create successfully');
     }
 
     /**

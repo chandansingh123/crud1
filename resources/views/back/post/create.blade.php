@@ -30,7 +30,7 @@
                     </div>
                 @endif --}}
                   <!-- form start -->
-                  <form role="form" action="{{route('posts.store')}}" method="post">
+                  <form role="form" action="{{route('categories.store')}}" method="post">
                   @csrf
                     <div class="box-body">
                       <div class="form-group">
