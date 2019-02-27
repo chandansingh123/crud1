@@ -1,6 +1,6 @@
 @extends('back.layouts.master')
 @section('contents')
-{{-- {{dump($posts)}}
+{{-- {{dump($categories)}}
 {{dump('Next Line')}} --}}
 <section class="content">
         <div class="row">
@@ -8,7 +8,7 @@
             <div class="box">
                 <div class="box-header">
                     <div class="pull-left">
-                        <a id="add-button" title="Add New" class="btn btn-success" href="{{route('posts.create')}}"><i class="fa fa-plus-circle"></i> Add New</a>
+                        <a id="add-button" title="Add New" class="btn btn-success" href="{{route('categories.create')}}"><i class="fa fa-plus-circle"></i> Add New</a>
                     </div>
                     <div class="pull-right">
                         <form accept-charset="utf-12" method="post" class="form-inline" id="form-filter" action="#">
@@ -29,35 +29,32 @@
                       <tr>
                         <th>Action</th>
                         <th>Title</th>
-                        <th>Description</th>
-                        <th>Author</th>
-                        <th>Category</th>
-                        <th>Date</th>
+                        
                       </tr>
                   </thead>
                   <tbody>
-                  @foreach ($posts as $post )
+                  @foreach ($categories as $category )
                        <tr>
                         <td width="70">
-                            <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{route('posts.edit',$post->id)}}">
+                            <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{route('categories.edit',$category->id)}}">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <form action="{{route('posts.destroy',$post->id)}}" method="post">
+                            <form action="{{route('categories.destroy',$category->id)}}" method="post">
 
                               @csrf
                               @method('DELETE')
-                              <button title="Delete" class="btn btn-xs btn-danger delete-row" href="{{route('posts.destroy',$post->id)}}">
+                              <button title="Delete" class="btn btn-xs btn-danger delete-row" href="{{route('categories.destroy',$category->id)}}">
                                 <i class="fa fa-times"></i>
                             </button>
                             </form>
                             
                         </td>
                         
-                        <td>{{($post->title)}}</td>
-                        <td>{{str_limit($post->description,40)}}</td>
+                        <td>{{($category->title)}}</td>
+                        {{--  <td>{{str_limit($post->description,40)}}</td>  --}}
                         <td>John Doe</td>
                         <td>Programming</td>
-                        <td><abbr title="2016/12/04 6:32:00 PM">{{($post->created_at)}}</abbr> | <span class="label label-info">Schedule</span></td>
+                        <td><abbr title="2016/12/04 6:32:00 PM">{{($category->created_at)}}</abbr> | <span class="label label-info">Schedule</span></td>
                       </tr>
                   @endforeach
                      

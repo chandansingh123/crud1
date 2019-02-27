@@ -9,4 +9,7 @@ class Category extends Model
     protected $fillable = [
         'title'
     ];
+    // protected $guarded = [
+    //     'title'
+    // ];
 }

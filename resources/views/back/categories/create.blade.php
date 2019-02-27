@@ -4,12 +4,12 @@
 
  <section class="content-header">
       <h1>
-        Add New categories
+        Add New Post
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">categories</a></li>
-        <li class="active">Add New categories</li>
+        <li><a href="#">Post</a></li>
+        <li class="active">Add New Post</li>
       </ol>
     </section>
 
@@ -37,7 +37,8 @@
                         <label for="title">Title</label>
                         <input type="text" name="title" value="{{old('title')}}" placeholder="Enter Title here" id="title" class="form-control">
                       </div>
-                    
+                     
+                      
                     </div>
                     <!-- /.box-body -->
 

@@ -129,6 +129,6 @@ class PostController extends Controller
         // dd($post);
         // return view('back.post.edit',compact('post'));
         $post->delete();
-        return redirect()->back()->with('success','message successfully deleted');;
+        return redirect()->back()->with('success','message successfully deleted');
     }
 }

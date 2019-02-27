@@ -8,7 +8,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="{{route('posts.index')}}">Post</a></li>
+        <li><a href="{{route('categories.index')}}">Post</a></li>
         <li class="active">edit New Post</li>
       </ol>
     </section>
@@ -30,15 +30,16 @@
                     </div>
                 @endif --}}
                   <!-- form start -->
-                  <form role="form" action="{{route('Category.update',$post->id)}}" method="post">
+                  <form role="form" action="{{route('categories.update',$category->id)}}" method="post">
                   @csrf
                   @method('PUT')
                     <div class="box-body">
                       <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" name="title" value="{{($post->title)}}" placeholder="Enter Title here" id="title" class="form-control">
-                      </div>                     
-                    </div>
+                        <input type="text" name="title" value="{{($category->title)}}" placeholder="Enter Title here" id="title" class="form-control">
+                      </div>
+                     
+                   
                     <!-- /.box-body -->
 
                     <div class="box-footer">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Category;
+use Illuminate\validation\Rule;
+
 class CategoryController extends Controller
 {
     /**
@@ -14,7 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories =Category::all();
+
+        return view ('back.categories.index',compact('categories'));
     }
 
     /**
@@ -61,9 +65,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        //  dump($categories);
+         return view('back.categories.edit',compact('category'));
+        
     }
 
     /**
@@ -75,7 +81,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required',Rule::unique('categories')->ignore('id'),
+            'description' => 'required',
+        ]);
+        $categories = Category::find($id);
+        $categories->title = $request->title;
+        $categories->description = $request->description;
+        $categories->save();
+        return redirect()->route('categories.index')->with('success','message successfully updated');
+
     }
 
     /**
@@ -84,8 +99,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->back()->with('success','message successfully deleted');
     }
 }
