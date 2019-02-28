@@ -36,7 +36,19 @@
                     <div class="box-body">
                       <div class="form-group">
                         <label for="title">Title</label>
+                        
                         <input type="text" name="title" value="{{($category->title)}}" placeholder="Enter Title here" id="title" class="form-control">
+                      
+                      <div class="dropdown">
+                    <label for="status">Status</label>
+                    
+                    <select class="form-control" name="status" id="" value="status">
+                    <option value="1" {{ ($category->status==1?'selected':'') }}>Enable</option>
+                    <option value="0" {{ ($category->status==0?'selected':'') }} selected="">Disable</option>
+  
+                    </select>
+                    </div> 
+                      
                       </div>
                      
                    

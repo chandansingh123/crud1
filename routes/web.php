@@ -29,7 +29,13 @@ Route::get('/admin', function () {
     // return view('front.layouts.master');
 });
 
-Route::prefix('admin')->group(function () {    
+Route::prefix('admin')->group(function () {   
+    
+    // Route::resources ([
+    //     'posts'=> 'PostController',
+    //     'categories'=> 'CategoryController'
+    // ]);
+
     Route::resource('posts','PostController');
     Route::resource('categories','CategoryController');
         // Route::get('posts','PostController@index')->name('posts.index');

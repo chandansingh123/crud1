@@ -29,6 +29,7 @@
                       <tr>
                         <th>Action</th>
                         <th>Title</th>
+                        <th>Status</th>
                         
                       </tr>
                   </thead>
@@ -51,9 +52,16 @@
                         </td>
                         
                         <td>{{($category->title)}}</td>
+                        <td>{{ ($category->status==1?'Enable':'Disable') }}
+                        {{--   @if($category->status ==1)
+                         Enable
+                        @else
+                         Disable
+  
+                        @endif  --}}
+                        </td>
                         {{--  <td>{{str_limit($post->description,40)}}</td>  --}}
-                        <td>John Doe</td>
-                        <td>Programming</td>
+                       
                         <td><abbr title="2016/12/04 6:32:00 PM">{{($category->created_at)}}</abbr> | <span class="label label-info">Schedule</span></td>
                       </tr>
                   @endforeach

@@ -4,12 +4,12 @@
 
  <section class="content-header">
       <h1>
-        Add New Post
+        Add New Category
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Post</a></li>
-        <li class="active">Add New Post</li>
+        <li><a href="#">Category</a></li>
+        <li class="active">Add New Category</li>
       </ol>
     </section>
 
@@ -36,6 +36,20 @@
                       <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" value="{{old('title')}}" placeholder="Enter Title here" id="title" class="form-control">
+                        
+                       
+                    <div class="dropdown">
+                    <label for="status">Status</label>
+                    
+                    <select class="form-control" name="status" id="" value="status">
+                    <option value="1">Enable</option>
+                    <option value="0" selected="">Disable</option>
+  
+                    </select>
+                    </div> 
+                  </div>
+
+
                       </div>
                      
                       

@@ -16,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories =Category::all();
+        $categories =Category::latest()->get();
+        // $categories =Category::where('status',1)->latest()->get();
 
         return view ('back.categories.index',compact('categories'));
     }
@@ -38,12 +39,13 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {  
         $validatedData = $request->validate([
             'title' =>'required|unique:categories',
         ]);
         Category::create([
-            'title' => $request->title
+            'title' => $request->title,
+            'status' => $request->status
         ]);
         return redirect()->back()->with('success' ,'create successfully');
     }
@@ -83,11 +85,12 @@ class CategoryController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required',Rule::unique('categories')->ignore('id'),
-            'description' => 'required',
+            // 'description' => 'required',
         ]);
         $categories = Category::find($id);
         $categories->title = $request->title;
-        $categories->description = $request->description;
+        $categories->status = $request->status;
+        // $categories->description = $request->description;
         $categories->save();
         return redirect()->route('categories.index')->with('success','message successfully updated');
 
