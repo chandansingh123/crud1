@@ -36,7 +36,7 @@
                       </tr>
                   </thead>
                   <tbody>
-                  @foreach ($posts as $post )
+                  @forelse ($posts as $post )
                        <tr>
                         <td width="70">
                             <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{route('posts.edit',$post->id)}}">
@@ -56,11 +56,17 @@
                         <td>{{($post->title)}}</td>
                         <td>{{str_limit($post->description,40)}}</td>
                         <td>John Doe</td>
-                        <td>Programming</td>
+                        <td>{{$post->category->title  }}</td>
                         <td><abbr title="2016/12/04 6:32:00 PM">{{($post->created_at)}}</abbr> | <span class="label label-info">Schedule</span></td>
                       </tr>
-                  @endforeach
-                     
+                      @empty
+                      <tr>
+                      <td colspan="6">
+                      <p class="text-info text-center">
+                      No record found
+                      <p>
+                      </tr>
+                      @endforelse
                   </tbody>
                 </table>
               </div>

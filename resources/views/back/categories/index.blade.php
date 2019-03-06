@@ -34,7 +34,7 @@
                       </tr>
                   </thead>
                   <tbody>
-                  @foreach ($categories as $category )
+                  @forelse ($categories as $category )
                        <tr>
                         <td width="70">
                             <a title="Edit" class="btn btn-xs btn-default edit-row" href="{{route('categories.edit',$category->id)}}">
@@ -64,7 +64,14 @@
                        
                         <td><abbr title="2016/12/04 6:32:00 PM">{{($category->created_at)}}</abbr> | <span class="label label-info">Schedule</span></td>
                       </tr>
-                  @endforeach
+                       @empty
+                      <tr>
+                      <td colspan="6">
+                      <p class="text-info text-center">
+                      No record found
+                      <p>
+                      </tr>
+                  @endforelse
                      
                   </tbody>
                 </table>

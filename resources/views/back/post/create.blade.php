@@ -16,7 +16,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-xs-9">
 
               <div class="box">
                             
@@ -30,7 +30,7 @@
                     </div>
                 @endif --}}
                   <!-- form start -->
-                  <form role="form" action="{{route('categories.store')}}" method="post">
+                  <form role="form" action="{{route('posts.store')}}" method="post">
                   @csrf
                     <div class="box-body">
                       <div class="form-group">
@@ -42,7 +42,22 @@
                         <label for="description">Description</label>
                         <textarea name="description" id="description" rows="10" class="form-control">{{old('description')}}</textarea>
                       </div>
+                          <div class="form-group">
+                      <label>Categories</label>
+                       @foreach ($categories as $category)
+                      <div class="radio">
+                      <div class="box-body">
+                          <label>
+                            <input type="radio" name="category" id="category-1" value="{{ $category->id }}">
+                            {{ $category->title }}
+                          </label>
+                      </div>
+                  @endforeach
                     </div>
+                    </div>
+
+                
+                    
                     <!-- /.box-body -->
 
                     <div class="box-footer">
@@ -53,8 +68,8 @@
                   </form>
                 </div>
           </div>
-          {{-- <div class="col-md-3">
-              <div class="box">
+          <div class="col-md-3">
+              {{--  <div class="box">
                   <div class="box-header with-border">
                       <h3 class="box-title">Publish</h3>
                   </div>
@@ -72,52 +87,31 @@
                           <a href="#" class="btn btn-primary">Publish</a>
                       </div>
                   </div>
-              </div>
-              <div class="box">
+              </div>  --}}
+              {{--  <div class="box">
+                  <div class="box-header with-border">
+                      <h3 class="box-title">Category</h3>
+                  </div>  --}}
+                  {{--  @foreach ($categories as $category)
+                      <div class="radio">
+                  <div class="box-body">
+                          <label>
+                            <input type="radio" name="category" id="category-1" value="option1">
+                            {{ $category->title }}
+                          </label>
+                      </div>
+                  @endforeach  --}}
+                  {{--  </div>
+              </div>  --}}
+              
+
+              <div class="form-group">
                   <div class="box-header with-border">
                       <h3 class="box-title">Category</h3>
                   </div>
-                  <div class="box-body">
-                      <div class="radio">
-                          <label>
-                            <input type="radio" name="category" id="category-1" value="option1">
-                            Web Programming
-                          </label>
-                      </div>
-                      <div class="radio">
-                          <label>
-                            <input type="radio" name="category" id="category-2" value="option1">
-                            Web Design
-                          </label>
-                      </div>
-                      <div class="radio">
-                          <label>
-                            <input type="radio" name="category" id="category-3" value="option1">
-                            Java
-                          </label>
-                      </div>
-                  </div>
-              </div>
-              <div class="box">
-                  <div class="box-header with-border">
-                      <h3 class="box-title">Feature Image</h3>
-                  </div>
-                  <div class="box-body text-center">
-                      <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                            <img src="http://placehold.it/200x200" width="100%" alt="...">
-                        </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-                        <div>
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>
-                            <input type="file" name="...">
-                            </span>
-                            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-                        </div>
+               
                     </div>
-                  </div>
-              </div>
-          </div> --}}
+          </div>
         </div>
       <!-- ./row -->
     </section>

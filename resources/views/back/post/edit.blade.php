@@ -43,7 +43,13 @@
                         <label for="description">Description</label>
                         <textarea name="description" id="description" rows="10" class="form-control">{{($post->description)}}</textarea>
                       </div>
+                    <div class="form-group">
+                        <label for="title">Category</label>
+                        <input name="category" value="{{($post->category)}}" placeholder="Enter Category here" id="category" class="form-control">
                     </div>
+                    </div>
+                      
+
                     <!-- /.box-body -->
 
                     <div class="box-footer">
@@ -53,9 +59,9 @@
                   </form>
                 </div>
           </div>
-          {{-- <div class="col-md-3">
+          <div class="col-md-3">
               <div class="box">
-                  <div class="box-header with-border">
+                  {{--  <div class="box-header with-border">
                       <h3 class="box-title">Publish</h3>
                   </div>
                   <div class="box-body">
@@ -71,7 +77,7 @@
                       <div class="pull-right">
                           <a href="#" class="btn btn-primary">Publish</a>
                       </div>
-                  </div>
+                  </div>  --}}
               </div>
               <div class="box">
                   <div class="box-header with-border">
@@ -117,7 +123,7 @@
                     </div>
                   </div>
               </div>
-          </div> --}}
+          </div>
         </div>
       <!-- ./row -->
     </section>
