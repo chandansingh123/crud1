@@ -1,8 +1,7 @@
 @extends('back.layouts.master')
 @section('contents')
-
-
- <section class="content-header">
+  @if (count($categories) > 0)
+       <section class="content-header">
       <h1>
         Add New Post
       </h1>
@@ -116,5 +115,8 @@
       <!-- ./row -->
     </section>
     <!-- /.content -->
-
+  @else
+     <p>You must have atleast one Category</p>
+    <p> <a href="{{ route('categories.index') }}"> create a category</p>
+ @endif
 @endsection
