@@ -105,6 +105,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
+        $category->posts()->delete();
         return redirect()->back()->with('success','message successfully deleted');
     }
 }

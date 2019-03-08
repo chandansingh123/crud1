@@ -53,7 +53,7 @@
                             
                         </td>
                         
-                        <td>{{($post->title)}}</td>
+                        <td><a href="{{ route('posts.show',$post->id) }}">{{($post->title)}}</td>
                         <td>{{str_limit($post->description,40)}}</td>
                         <td>John Doe</td>
                         <td>{{$post->category->title  }}</td>

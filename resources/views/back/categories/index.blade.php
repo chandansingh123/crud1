@@ -44,7 +44,7 @@
 
                               @csrf
                               @method('DELETE')
-                              <button title="Delete" class="btn btn-xs btn-danger delete-row" href="{{route('categories.destroy',$category->id)}}">
+                              <button title="Delete" class="btn btn-xs btn-danger delete-row">
                                 <i class="fa fa-times"></i>
                             </button>
                             </form>

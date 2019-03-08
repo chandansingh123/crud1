@@ -12,14 +12,11 @@
         <li class="active">edit New Post</li>
       </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
         <div class="row">
           <div class="col-xs-9">
-
-              <div class="box">
-                            
+              <div class="box">                            
                 {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>

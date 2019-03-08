@@ -29,8 +29,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $categories = Category::all();
+    {   
+        // $categories = Category::all();
+        // return view ('back.post.create',compact('categories'));
+        $categories = Category::where('status',1)->select('id','title')->get();
         return view ('back.post.create',compact('categories'));
     }
 
@@ -73,7 +75,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('back.post.show',compact('post'));
     }
 
     /**
