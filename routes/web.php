@@ -24,13 +24,13 @@ Route::get('/', function () {
  * 
  * back end
  */
-Route::get('/admin', function () {
-    return view('back.dashboard');
-    // return view('front.layouts.master');
-});
 
 Route::prefix('admin')->group(function () {   
     
+    Route::get('/', function () {
+        return view('back.dashboard');
+        // return view('front.layouts.master');
+    })->middleware('auth');
     // Route::resources ([
     //     'posts'=> 'PostController',
     //     'categories'=> 'CategoryController'
@@ -52,3 +52,7 @@ Route::prefix('admin')->group(function () {
 //  Route::get('/admin/posts/{post}/edit','PostController@edit')->name('posts.edit');
 //  Route::put('/admin/posts/{post}','PostController@update')->name('posts.update');
 //  Route::delete('/admin/posts/{post}','PostController@destroy')->name('posts.destroy');
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

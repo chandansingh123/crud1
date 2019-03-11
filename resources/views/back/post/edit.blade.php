@@ -45,8 +45,6 @@
                         <input name="category" value="{{($post->category)}}" placeholder="Enter Category here" id="category" class="form-control">
                     </div>
                     </div>
-                      
-
                     <!-- /.box-body -->
 
                     <div class="box-footer">
