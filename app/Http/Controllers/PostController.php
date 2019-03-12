@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\validation\Rule;
 
 class PostController extends Controller
@@ -16,6 +18,8 @@ class PostController extends Controller
      */
     public function index()
     {
+        // P
+        // Auth::User();
         $posts =Post::all();
         // $posts =Post::with('category')->get();
         // dd('posts');

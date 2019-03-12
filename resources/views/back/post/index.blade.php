@@ -30,7 +30,6 @@
                         <th>Action</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Author</th>
                         <th>Category</th>
                         <th>Date</th>
                       </tr>
@@ -55,7 +54,6 @@
                         
                         <td><a href="{{ route('posts.show',$post->id) }}">{{($post->title)}}</td>
                         <td>{{str_limit($post->description,40)}}</td>
-                        <td>John Doe</td>
                         <td>{{$post->category->title  }}</td>
                         <td><abbr title="2016/12/04 6:32:00 PM">{{($post->created_at)}}</abbr> | <span class="label label-info">Schedule</span></td>
                       </tr>

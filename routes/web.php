@@ -14,16 +14,31 @@
  * 
  * front end
  */
-Route::get('/', function () {
-    return view('front.pages.index');
+// Route::get('/', function () {
+//     return view('front.pages.index');
     // return view('front.layouts.master');
-});
+// });
 
+Route::get('/','HomeController@index');
 
 /**
  * 
  * back end
  */
+
+// Route::group(['prefix' =>'admin','middleware'=>'auth'] , function () {   
+    
+//     Route::get('/', function () {
+//         return view('back.dashboard');
+        
+//     });
+    
+//     Route::resources ([
+//         'posts'=> 'PostController',
+//         'categories'=> 'CategoryController'
+//     ]);
+
+
 
 Route::prefix('admin')->group(function () {   
     
